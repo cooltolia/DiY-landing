@@ -1,0 +1,82 @@
+@import 'includes/normalize';
+@import 'includes/fonts';
+@import 'includes/mixins';
+
+$xsm: "(max-width: 768px)";
+$sm: "(min-width: 768px) and (max-width: 992px)";
+$md: "(min-width: 992px) and (max-width: 1200px)";
+$lg: "(min-width: 1200px)";
+
+$base-font-size: 16px;
+html, body, section {
+    box-sizing: border-box;
+}
+html{
+    overflow-y: scroll; 
+}
+
+
+/* некотрые настройки под мобюлиьники */
+body{
+    //font-family: $base-font;
+    font-size: $base-font-size;
+    overflow-x: hidden;
+
+    @media #{$md}{
+        font-size: $base-font-size - 2px;
+    }
+    @media #{$sm}{
+        font-size: $base-font-size - 3px;
+    }
+
+    @media #{$xsm}{
+        font-size: $base-font-size - 2px;
+        text-align: center;
+        img{
+            text-align: center;
+            display: inline-block;
+        }
+        .img-responsive{
+            text-align: center;
+            display: inline-block;
+            width: 100%;
+        }
+    }
+
+
+}
+
+/* --некотрые настройки под мобюлиьники-- */
+body, li, span, p, div, h1, h2, h3, h4, td{
+    line-height: 1.2em;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* установим транизитон для всего */
+*{
+
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+*{
+    box-sizing: border-box;
+}
+/* -- */
+
+input[type="text"], input[type="tel"], textarea {
+  @include placeholder {
+    color: #cbcbcb;
+   // font-style: italic;
+  }
+}
+
+
+section{
+    padding: 25px 0 50px 0;
+}
