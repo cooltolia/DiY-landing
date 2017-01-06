@@ -1,1 +1,2 @@
-# simpleVerstka
+# Верстка GULP. JADE + SCSS + JS + BOWER + USEREF ... 
+Верстка многостраничная
