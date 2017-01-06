@@ -1,2 +1,3 @@
 # Верстка GULP. JADE + SCSS + JS + BOWER + USEREF ... 
 Верстка многостраничная
+> git clone https://github.com/docentovich/fastVerstka [<имя папки>]
