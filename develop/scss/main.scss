@@ -10,17 +10,22 @@ $md: "(min-width: 992px) and (max-width: 1200px)";
 $lg: "(min-width: 1200px)";
 
 $base-font-size: 16px;
+
+// @include font-face("Karton", "../fonts/karton-regular-webfont", null, null, ttf woff woff2 );
+
+//html
 html, body, section {
     box-sizing: border-box;
 }
 html{
     overflow-y: scroll; 
 }
+//-html
 
 
-/* некотрые настройки под мобюлиьники */
+//body
 body{
-    //font-family: $base-font;
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
     font-size: $base-font-size;
     overflow-x: hidden;
 
@@ -44,41 +49,164 @@ body{
             width: 100%;
         }
     }
-
-
 }
+//-body
 
-/* --некотрые настройки под мобюлиьники-- */
-body, li, span, p, div, h1, h2, h3, h4, td{
-    line-height: 1.2em;
+//.pageload
+body.pageload * {
+  @include transition( none !important);
 }
+//-.pageload
+
+// body, li, span, p, div, h1, h2, h3, h4, td{
+//     line-height: 1.2em;
+// }
 
 *:focus {
     outline: none;
 }
 
-/* установим транизитон для всего */
-*{
-
-    -webkit-transition: all 0.2s linear;
-    -moz-transition: all 0.2s linear;
-    -o-transition: all 0.2s linear;
-    transition: all 0.2s linear;
-}
-
-*{
+//box-sizing all 
+body *{
     box-sizing: border-box;
 }
 /* -- */
 
-input[type="text"], input[type="tel"], textarea {
+//placeholder
+input[type="text"], input[type="tel"], input[type="email"], textarea {
   @include placeholder {
-    color: #cbcbcb;
+    color: #bcbcbc;
    // font-style: italic;
+  }
+}
+//-placeholder
+
+
+//section
+section{
+    padding: 25px 0 50px 0;
+}
+//-section
+
+/* навбар превращаеться в крестик */
+.navbar-toggle{
+    .icon-bar{
+        -webkit-transition: all 0.2s linear;
+        -moz-transition: all 0.2s linear;
+        -o-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+    }
+    .icon-bar:nth-of-type(4){
+        transform-origin: 0 0;
+        @include transform(rotate(-33deg));
+        
+    }
+    .icon-bar:nth-of-type(3){
+        
+        opacity: 0;
+    }
+    .icon-bar:nth-of-type(2){
+        transform-origin: 0 0;
+        @include transform(rotate(33deg));
+    }
+}
+
+.collapsed{
+    .icon-bar{
+        @include transform(rotate(0deg)  !important);
+        opacity: 1 !important; 
+    }
+     
+}
+/* -- */
+
+//row equal height on diffrent medias
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.row-eq-height-lg {
+  @media #{$lg}{
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
   }
 }
 
 
-section{
-    padding: 25px 0 50px 0;
+.row-eq-height-md {
+  @media #{$lg}, #{$md}{
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+  }
 }
+
+.row-eq-height-sm {
+  @media #{$lg}, #{$md}, #{$sm}{
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+  }
+}
+//-row equal height on diffrent medias
+
+//песвдоэлементы
+b{
+    font-weight: 600 !important
+}
+
+q{
+    font-family: Times, serif; /* Шрифт с засечками */
+    &:after{
+        content: "\"";
+    }
+}
+//-песвдоэлементы
+
+//no
+.no-margin{
+  margin: 0px;
+}
+
+.no-padding{
+  padding: 0px;
+}
+//-no
+
+
+//joomla pagination
+.icon-next:after{  
+  font-family: "FontAwesome";
+  content: "\f105";
+  font-size: 20px;
+}
+
+.icon-previous:after{  
+  font-family: "FontAwesome";
+  content: "\f104";
+  font-size: 20px;
+}
+
+.icon-first:after{  
+  font-family: "FontAwesome";
+  content: "\f100";
+  font-size: 20px;
+}
+
+.icon-last:after{  
+  font-family: "FontAwesome";
+  content: "\f101";
+  font-size: 20px;
+}
+
+//-joomla pagination
+
+@import "../blocks/**/*";
+@import "../../../../bemBlocks/**/*";

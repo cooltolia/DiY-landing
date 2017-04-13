@@ -1,12 +1,15 @@
+include ../blocks/**/*
+include ../../../../bemBlocks/**/*
+- var alias = "m"
 doctype
 html(lang='ru')
     include template/header
-    body
-     .container
-        .row
-            .col-md-3
-                include template/sidebar
-            .col-md-9
-                 div
-                  | mainPage
-     include template/footer
+    body.pageload.no-js
+        .container
+            .row
+                .col-md-3
+                    +sidebar
+                .col-md-9
+                     div
+                      | mainPage
+        include template/footer

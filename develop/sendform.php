@@ -1,66 +1,67 @@
 <?php
+$conf['from'] = "site";  //Ваше имя - или имя Вашего сайта. Будет показывать при прочтении в поле "От кого"
+$conf['from-email'] = "noreplay@site.ru";  //Будет показывать при прочтении в поле "От кого" email
+$conf['to-email'] = "site@site.ru";  //куда будут идти заявки
+
+
 error_reporting(0);
-$token = "token";
+header("HTTP/1.1 200 OK");
+include "_sendform.php";
 
-if(isset($_POST['submit']) and $_POST['submit']!=''){
-    
-    $send = array(
-		    'name' => (isset($_POST['name'])) ? $_POST['name'] : '',
-		    'question' => (isset($_POST['question'])) ? $_POST['question'] : '',
-		    'phone' => (isset($_POST['phone'])) ? $_POST['phone'] : '',
-		    'email' => (isset($_POST['email'])) ? $_POST['email'] : '',
-		    'resend' => 1
-		);
-    
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,"http://resiver.com/?p=theme&token=".$token);
-    //curl_setopt($ch, CURLOPT_URL,"localhost/zayavki/index.php?token=".$token);
-    
-    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; CrawlBot/1.0.0)');
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie);
-    curl_setopt($ch, CURLOPT_HEADER, true);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($ch, CURLOPT_ENCODING, "");
-    curl_setopt($ch, CURLOPT_AUTOREFERER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);    # required for https urls
-    curl_setopt($ch, CURLOPT_MAXREDIRS, 15);            
-    
-    
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt(
-	    $ch, CURLOPT_POSTFIELDS, 
-	      http_build_query($send)
-	    );
 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $server_output = curl_exec ($ch);
-    curl_close ($ch);
- 
-    if($server_output=="OK"){    
-	
-    }else{    
-	
-		//unset($send['resend']);
-		//mail("", "Zayavka CURl FAILS", implode(" || ", $send)." server seys: ".$server_output);
-		
+
+if(isset($_POST['token']))
+    if($_POST['token']=="tnbm567sgfg4556sdfDSg"){
+
+        if(isset($_POST['email'])){
+            $_message[] = "Емайл " . $_POST['email'];
+            $_sms[] =  substr($_POST['email'], 0, 10); //лимитируем смс по кол-во символов
+        }
+        if(isset($_POST['name'])){
+            $_message[] = "Имя " . $_POST['name'];
+            $_sms[] = substr($_POST['name'], 0, 10); //лимитируем смс по кол-во символов
+        }
+        if(isset($_POST['phone'])){
+            $_message[] = "Телефон " . $_POST['phone'];
+            $_sms[] = substr($_POST['phone'], 0, 15); //лимитируем смс по кол-во символов
+        }
+        if(isset($_POST['question'])){
+            $_message[] = "Вопрос " . $_POST['question'];
+            $_sms[] = "quest"; //лимитируем смс по кол-во символов
+        }
+
+
+        $_message[] = "Страничка - " . $_SERVER['HTTP_REFERER'];
+        $_t = explode("/", $_SERVER['HTTP_REFERER']); //получаем последнюю составляющую урла
+        $_sms[] = substr($_t[count($_t)-1], 0, 7); //отрезаем от нее первые 7 символов чтобы смс было короче
+
+
+        $message = explode(" || ", $_message);
+        $sms = explode("|", $_sms);
+
+        $rezult = _mail ($conf['from-email'], $conf['to-email'], 'С сайта заявочка!', $message);
+        //$rezult = _smtpmail ($conf['from-email'], $conf['to-email'], 'С сайта заявочка!', $message);
+
+        //смс без курла
+        // $body=file_get_contents("https://sms.ru/sms/send?api_id=[ваш ключ, виден после авторизации]&to=[номер получателя]&text=".urlencode(iconv("windows-1251","utf-8", $sms))); # Если приходят крякозябры, то уберите iconv и оставьте только "Привет!"
+
+        //смс с курлом
+        // $ch = curl_init("https://sms.ru/sms/send");
+        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+        // curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        // curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+
+        //     "api_id"        =>  "[ваш ключ, виден после авторизации]",
+        //     "to"            =>  "[номер получателя]",
+        //     "text"      =>  iconv("windows-1251","utf-8", $sms) # Если приходят крякозябры, то уберите iconv и оставьте только "Привет!"
+
+        // ));
+        // $body = curl_exec($ch);
+        // curl_close($ch);
+
+        if($rezult) echo "OK";
+        exit();
     }
-}
-?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>спасибо за заявку</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="Refresh" content="3; URL=/" />
-<script src="//st.yagla.ru/js/y.c.js?h=yagla"></script>
-</head>
 
-<body>
-<center><h1>Спасибо за заявку!</h1></center>
-<!-- Yandex.Metrika counter --> 
-<script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter444 = new Ya.Metrika({ id:444, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/444" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
-</body>
-</html>
+echo "error";
+exit();

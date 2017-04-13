@@ -1,5 +1,6 @@
 include ../includes/bemto
 include ../includes/mixins
+- var links = [{alias: "m", url: "index.html", "label" : "Главная"}, {alias: "w", url: "work.html", "label" : "Работа", sublines : [{url: "izber.html", "label" : "Работа с избирателями"}, {url: "zaks.html", "label" : "Работа в Законодательном Собрании Санкт-Петербурга"}] } ];
 head
     meta(charset='utf-8')
     meta(name='description', content='')
@@ -10,17 +11,19 @@ head
     title Landing Page
 
     link(rel='icon', href='/favicon.png', type='image/x-icon')
-    // build:css css/vendor.css 
     link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
     link(href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab', rel='stylesheet')
+
+    // build:css css/vendor.css    
     link(href='libs/bootstrap.css', rel='stylesheet')
-    link(href='libs/owl.carousel.min.css', rel='stylesheet')
     link(href='libs/fancybox/jquery.fancybox.css', rel='stylesheet')
     // endbuild
     // build:css css/main.css
     link(href='css/main.css', rel='stylesheet')
     // endbuild 
-    // [if lt IE 9]
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        [endif]
+    //[if lt IE 9]>
+          <script src="libs/ie/html5shiv.js"></script>
+          <script src="libs/ie/respond.src.js"></script>
+          <script src="libs/ie/respond.matchmedia.addListener.src.js"></script>
+          <![endif]
+    script(src='libs/polyfills/background_size_emu.js')

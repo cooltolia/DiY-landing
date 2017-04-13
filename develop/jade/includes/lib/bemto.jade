@@ -130,11 +130,17 @@ mixin b(options)
     else
       - attributes.class = undefined
 
+  - var block_name = bemto_chain[bemto_chain.length - 1];
   if block
+    if !isElement
+     <!-- #{block_name} --> 
     +bemto_tag(tag, tagMetadata)&attributes(attributes)
       block
+    if !isElement
+     <!--/ #{block_name} --> 
   else
     +bemto_tag(tag, tagMetadata)&attributes(attributes)
+
 
   //- Closing actions (remove the current block from the chain)
   if !isElement && block_sets_context
