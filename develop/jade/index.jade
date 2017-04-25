@@ -1,5 +1,7 @@
 include template/header
 include template/footer
+include ../blocks/**/*
+include ../../../bemBlocks/**/*
 - var alias = "m"
 doctype
 html(lang='ru')
@@ -10,6 +12,6 @@ html(lang='ru')
                 .col-md-3
                     //- +sidebar
                 .col-md-9
-                     div
-                      | mainPage
+                    div
+                        | mainPage
         +doc-footer

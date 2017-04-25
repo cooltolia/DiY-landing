@@ -42,13 +42,9 @@ gulp.task("default", ["browser-sync", "libs", "watch"], function(){
 });
 */
 
-gulp.task("default", ["compile", "watch", "browser-sync"], function(){
+gulp.task("default", ["compile", "watch", "browser-sync"], function(){});
 
-});
-
-gulp.task("compile", ["sprite", "scss", "js", "jadeBlocks"], function(){
-
-});
+gulp.task("compile", ["sprite", "scss", "js", "jadeBlocks"], function(){});
 
 
 gulp.task("browser-sync", function() {
@@ -56,6 +52,8 @@ gulp.task("browser-sync", function() {
     server: {
       baseDir: app
     },
+    browser: "chrome",
+    notify: false,
     port: 8000
   });
 });
@@ -86,6 +84,7 @@ gulp.task("scss", function() {
 
 //-----JADE-------
 gulp.task("jade", function() {
+
   return gulp.src(["./develop/jade/**/*.jade", "!./develop/jade/template/**/*", "!./develop/jade/includes/**/*", "!./develop/jade/includes.jade"])
   .pipe(changed(app, {extension: ".html"}))
   .pipe(print())
@@ -94,11 +93,12 @@ gulp.task("jade", function() {
   .pipe(jade({
     pretty: "  ",
   }))
-
   .pipe(gulp.dest(app))
+
 });
 
 gulp.task("jadeBlocks", function() {
+
   return gulp.src(["./develop/jade/**/*.jade", "!./develop/jade/template/**/*", "!./develop/jade/includes/**/*", "!./develop/jade/includes.jade"])
   .pipe(plumber())
   .pipe(jadeGlobbing())
@@ -107,13 +107,16 @@ gulp.task("jadeBlocks", function() {
     pretty: "  ",
   }))
   .pipe(gulp.dest(app))
+
 });
 
 
 
 //-----JS-------
 gulp.task("deljs", function(){
+
  return del.sync([app + "/js/main.js"]);
+
 });
 
 gulp.task("js", ["deljs"], function(){
@@ -130,8 +133,8 @@ gulp.task("js", ["deljs"], function(){
 
 //------SPRITE-----------
 gulp.task("sprite", function generateSpritesheets () {
-  // for(var i in sprites){
 
+  // for(var i in sprites){
     //png sptite
     // var sprite = sprites[i];
     var spriteData = gulp.src("./develop/images/sprite/*.png")
@@ -146,19 +149,21 @@ gulp.task("sprite", function generateSpritesheets () {
     spriteData.img.pipe(gulp.dest(app + "/images"));
     spriteData.css.pipe(gulp.dest(app + "/scss"));
     //-png sptite
-
   // }
+
 });
 
 
 
 //-----WATCH-------
 gulp.task("watch", function() {
-  gulp.watch("images/{" + sprites.join(",") + "}/*.{jpg,png,svg,gif}", {cwd: "develop"}, ["sprite"]);
-  gulp.watch("**/*.scss", {cwd: "develop"}, ["scss"]);
-  gulp.watch(["**/*.js", "!js/main.js"], {cwd: "develop"}, ["js", browserSync.reload]);
-  gulp.watch(["jade/blocks/**/*.jade", "blocks/**/*.jade"], {cwd: "develop"}, ["jadeBlocks", browserSync.reload]);
-  gulp.watch(["jade/**/*.jade", "!jade/template/**/*.jade"], {cwd: "develop"}, ["jade", browserSync.reload]);
+
+  gulp.watch("images/{" + sprites.join(",") + "}/*.{jpg,png,svg,gif}", {cwd: "develop"}, ["sprite"]); //спрайт
+  gulp.watch("**/*.scss", {cwd: "develop"}, ["scss"]); // css
+  gulp.watch(["**/*.js", "!js/main.js"], {cwd: "develop"}, ["js", browserSync.reload]); //js
+  gulp.watch(["jade/blocks/**/*.jade", "blocks/**/*.jade"], {cwd: "develop"}, ["jadeBlocks", browserSync.reload]); //блоки
+  gulp.watch(["jade/**/*.jade", "!jade/template/**/*.jade"], {cwd: "develop"}, ["jade", browserSync.reload]); //шаблоны
+
 });
 
 
@@ -169,15 +174,19 @@ gulp.task("watch", function() {
 
 
 // ====TO DIST====
+
 //cleandist
 gulp.task("build:clean", ["jadeBlocks"], function () {
+
   return del.sync(["./dist"]);
+
 });
 
 
 
 //copydist
 gulp.task("build:copyDist", function () {  
+
   return gulp.src([
     app + "/sendform.php", 
     app + "/.htaccess", 
@@ -185,42 +194,49 @@ gulp.task("build:copyDist", function () {
     ])
   .pipe(print())
   .pipe(gulp.dest("dist"));
+
 });
 
 
 
 //copylibs
-gulp.task("build:copyLibs", function () {  
+gulp.task("build:copyLibs", function () {
+
   return gulp.src([
     app + "/libs/**"])
   .pipe(print())
   .pipe(gulp.dest("dist/libs"));
+
 });
 
 
 
 //copy dist fonts
 gulp.task("build:copyDistFonts",  function () {  
-  return gulp.src([app + "/fonts/**/{*.eot,*.svg,*.ttf,*.eot,*.otf,*.woff2,*.woff}"]
-    )
+
+  return gulp.src([app + "/fonts/**/{*.eot,*.svg,*.ttf,*.eot,*.otf,*.woff2,*.woff}"])
   .pipe(print())
   .pipe(gulp.dest("dist/fonts"));
+
 });
 
 
 
 //minifi img
 gulp.task("build:minifiImg",  function () { 
+
   return gulp.src([app + "/images/**/{*.jpg,*.png,*.jpeg,*.gif,*.svg}"])
   .pipe(print())
   .pipe(imagemin({zopflipng: false}))
   .on("error", console.log)
   .pipe(gulp.dest("dist/images"));
+
 });
 
 
 
 gulp.task("build:minifiJsCss",   function () { 
+
   return gulp.src(app + "/**/*.html")
   .pipe(useref({ searchPath: "develop", base: "develop" }))
   .pipe(print())
@@ -230,52 +246,61 @@ gulp.task("build:minifiJsCss",   function () {
   })))   
   .pipe(gulpif("*.css", minifyCss()))    
   .pipe(gulp.dest("dist"));
+
 });
 
 
 
 gulp.task("build:dist", ["build:clean"], function (callback) {
+
   return runSequence([/*"build:copyDist",*/ "build:copyLibs", "build:copyDistFonts", "build:minifiImg", "build:minifiJsCss"], callback);
+
 });
 //===TO DIST====
 
 
 /* ===TO JOOMLA==== */
 //copy dist fonts
-gulp.task("Jbuild:copyDistFonts",  function () {  
-  return gulp.src([app + "/fonts/**/{*.eot,*.svg,*.ttf,*.eot,*.otf,*.woff2,*.woff}"]
-    )
+gulp.task("Jbuild:copyDistFonts",  function () {
+
+  return gulp.src([app + "/fonts/**/{*.eot,*.svg,*.ttf,*.eot,*.otf,*.woff2,*.woff}"])
   .pipe(print())
   .pipe(gulp.dest("../fonts"));
+
 });
 
 
 
 //minifi img
-gulp.task("Jbuild:minifiImg",  function () { 
+gulp.task("Jbuild:minifiImg",  function () {
+
   return gulp.src([app + "/images/**/{*.jpg,*.png,*.jpeg,*.gif,*.svg}"])
   .pipe(print())
   .pipe(imagemin())
   .on("error", console.log)
   .pipe(gulp.dest("../images"));
+
 });
 
 
 
-gulp.task("Jbuild:minifiJsCss",   function () { 
+gulp.task("Jbuild:minifiJsCss",   function () {
+
   return gulp.src(app + "/index.html")
   .pipe(useref())
   .pipe(print())
-    //.pipe(replace(/\$/g, "jQuery"))
-    .pipe(gulpif("*.js", uglify()))   
-    .pipe(gulpif("*.css", minifyCss()))    
-    .pipe(gulp.dest("../"));
-  });
+  .pipe(gulpif("*.js", uglify()))   
+  .pipe(gulpif("*.css", minifyCss()))    
+  .pipe(gulp.dest("../"));
+
+});
 
 
 
 gulp.task("build:joomla", ["build:clean"], function (callback) {
+
   return runSequence(["Jbuild:copyDistFonts", "Jbuild:minifiJsCss"], callback);
+
 });
 /* ===TO JOOMLA==== */
 
@@ -283,7 +308,9 @@ gulp.task("build:joomla", ["build:clean"], function (callback) {
 
 //build
 gulp.task("build", ["build:clean"], function (callback) {
+
   return runSequence(["build:dist", "Jbuild:minifiImg", "build:joomla"], callback);
+
 });
 
 //------------=====build======--------------------
