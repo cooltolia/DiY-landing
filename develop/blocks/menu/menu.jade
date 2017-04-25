@@ -1,0 +1,21 @@
+mixin menu(sublines, links_local)
+    - if ( sublines == undefined  ) sublines = true
+    - if ( links_local == undefined  ) links_local = links
+    +b.UL.menu-ul&attributes(attributes)
+        for link in links_local
+            -    var active = "";
+            -    if (link.alias == alias) active = "_active"
+            if link.sublines != undefined && sublines
+                    +e.LI(class="li #{active} dropdown dropdown-submenu")
+                        +e.A(class="a #{active} dropdown-toggle" href="#{link.url}"  data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false') 
+                            | #{link.label}
+                            span.caret
+                        +e.UL.ul-dd.dropdown-menu
+                            for sub_link in link.sublines
+                                +e.LI.li._li-dd
+                                    +e.A(href='#{sub_link.url}').a._a-dd #{sub_link.label}
+                            
+
+            else
+                +e.LI(class="li #{active}")
+                    +e.A(class="a #{active}" href="#{link.url}") #{link.label}

@@ -36,8 +36,8 @@ if(isset($_POST['token']))
         $_sms[] = substr($_t[count($_t)-1], 0, 7); //отрезаем от нее первые 7 символов чтобы смс было короче
 
 
-        $message = explode(" || ", $_message);
-        $sms = explode("|", $_sms);
+        $message = impode(" || ", $_message);
+        $sms = impode("|", $_sms);
 
         $rezult = _mail ($conf['from-email'], $conf['to-email'], 'С сайта заявочка!', $message);
         //$rezult = _smtpmail ($conf['from-email'], $conf['to-email'], 'С сайта заявочка!', $message);

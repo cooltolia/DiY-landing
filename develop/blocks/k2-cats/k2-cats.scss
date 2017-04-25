@@ -1,0 +1,47 @@
+@mixin k2-cats() {
+    .k2-cats{
+        width: 100%;
+        // max-width: 220px;
+        min-width: 180px;
+    
+
+    &__title{
+        color: #2f2f2f; // text color
+        font-size: 18px;
+        margin-bottom: 10px;
+        padding: 10px 0 10px 20px;
+    }
+
+    &__link{
+        color: #000; // text color
+        font-size: 25px;
+        margin-bottom: 10px;
+        width: 100%;
+        padding: 10px 0 10px 20px;
+
+        &_active{
+            color: #64647d; // text color
+            font-size: 25px;
+
+            @include border-radius(13px 0 0 13px); // border radius
+            @include background-clip(padding-box); // prevents bg color from leaking outside the border
+            @include background-image(linear-gradient(39deg, rgba(235, 235, 235, 0.2) 0%, #fdfbfb 100%)); // layer fill content
+
+        }
+
+    }
+
+
+    @media #{$xsm}{
+        &__link{
+            padding: 10px;
+        }
+
+
+
+        &__title{
+            display: none;
+        }
+    }
+}
+}

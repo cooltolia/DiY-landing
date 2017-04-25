@@ -1,29 +1,32 @@
 include ../includes/bemto
 include ../includes/mixins
+include ../blocks/**/*
+include ../../../../bemBlocks/**/*
 - var links = [{alias: "m", url: "index.html", "label" : "Главная"}, {alias: "w", url: "work.html", "label" : "Работа", sublines : [{url: "izber.html", "label" : "Работа с избирателями"}, {url: "zaks.html", "label" : "Работа в Законодательном Собрании Санкт-Петербурга"}] } ];
-head
-    meta(charset='utf-8')
-    meta(name='description', content='')
-    meta(name='keywords', content='')
-    meta(content='IE=edge')&attributes({'http-equiv': "X-UA-Compatible"})
-    meta(name='viewport', content='width=device-width, initial-scale=1')
+mixin doc-header()
+  head
+      meta(charset='utf-8')
+      meta(name='description', content='')
+      meta(name='keywords', content='')
+      meta(content='IE=edge')&attributes({'http-equiv': "X-UA-Compatible"})
+      meta(name='viewport', content='width=device-width, initial-scale=1')
 
-    title Landing Page
+      title Landing Page
 
-    link(rel='icon', href='/favicon.png', type='image/x-icon')
-    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
-    link(href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab', rel='stylesheet')
+      link(rel='icon', href='/favicon.png', type='image/x-icon')
+      link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+      link(href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab', rel='stylesheet')
 
-    // build:css css/vendor.css    
-    link(href='libs/bootstrap.css', rel='stylesheet')
-    link(href='libs/fancybox/jquery.fancybox.css', rel='stylesheet')
-    // endbuild
-    // build:css css/main.css
-    link(href='css/main.css', rel='stylesheet')
-    // endbuild 
-    //[if lt IE 9]>
-          <script src="libs/ie/html5shiv.js"></script>
-          <script src="libs/ie/respond.src.js"></script>
-          <script src="libs/ie/respond.matchmedia.addListener.src.js"></script>
-          <![endif]
-    script(src='libs/polyfills/background_size_emu.js')
+      // build:css css/vendor.css    
+      link(href='libs/bootstrap.css', rel='stylesheet')
+      //- link(href='libs/fancybox/jquery.fancybox.css', rel='stylesheet')
+      // endbuild
+      // build:css css/main.css
+      link(href='css/main.css', rel='stylesheet')
+      // endbuild 
+      //[if lte IE 9]>
+            <script src="libs/ie/html5shiv.js"></script>
+            <script src="libs/ie/respond.src.js"></script>
+            <script src="libs/ie/respond.matchmedia.addListener.src.js"></script>
+            <script src="libs/polyfills/background_size_emu.js"></script>
+            <![endif]

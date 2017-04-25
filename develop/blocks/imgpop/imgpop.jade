@@ -1,0 +1,6 @@
+mixin imgpop(src, big, group)
+    -if(bid == "" || big == undefined) big = "images/" + src
+    -if(group == "" || group == undefined) group = "group-gal"
+    +b.imgpop&attributes(attributes)
+        +e.A(href="#{big}"  data-fancybox="#{group}").a
+            +e.img(style="background-image: url(images/#{src});")

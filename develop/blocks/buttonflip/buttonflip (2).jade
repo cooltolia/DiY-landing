@@ -1,0 +1,11 @@
+
+mixin buttonflip(text, id)
+ -if(id == undefined) id = ""
+ //- +b.b-buttonflip(id="buttonflip#{id}")
+ +b.buttonflip&attributes(attributes)
+  .buttonflip-back
+    +e.I.close.fa.fa-times
+    +flipform
+  .buttonflip-front Сделать заказ
+
+          //- +button(text, id)._transparent

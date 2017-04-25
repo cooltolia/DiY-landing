@@ -1,0 +1,26 @@
+@mixin imgpop() {
+    .imgpop{
+        width: 220px;
+        height: 200px;
+        margin: 10px;
+
+        &__img{
+            width: 220px;
+            height: 200px;
+            display: block;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+
+
+        }
+
+        &_video{
+            width: 300px;
+        }
+
+        &_video &__img{
+            width: 300px;
+        }
+    }
+}

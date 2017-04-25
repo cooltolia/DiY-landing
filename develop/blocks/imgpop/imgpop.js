@@ -1,0 +1,1 @@
+$(".imgpop__a").fancybox({touch : true});
