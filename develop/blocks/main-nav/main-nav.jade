@@ -1,0 +1,8 @@
+- var links = [{url: "#about", text: "О проекте"}, {url: "#partners", text: "Участники"}, {url: "#contacts", text: "Контакты"}]
+mixin main-nav()
+  +b.NAV.main-nav
+    +e.UL.list
+      for link in links
+        +e.LI.item
+          +link(link.url)
+            | #{link.text}

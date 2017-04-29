@@ -1,0 +1,1 @@
+$(".scroll").css("top", window.innerHeight-60);

@@ -1,8 +1,0 @@
-mixin k2-cats(links, a)
-    +b.k2-cats
-        +e.title Наименование товара
-        for link in links
-            -    var active = "";
-            -    if (link.alias == a) active = "_active"
-            +e(class="link #{active}")
-                +link(link.url) #{link.label}

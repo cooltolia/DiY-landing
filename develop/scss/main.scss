@@ -1,8 +1,8 @@
-@import "includes/normalize";
-@import "includes/_compass";
-@import "includes/compass/_reset";
-@import "includes/mixins";
+@import "includes/normalize.scss";
+@import "includes/fonts.scss";
 @import "sprite.scss";
+
+// @import "../blocks/**/*.scss";
 
 $xsm: "(max-width: 768px)";
 $sm: "(min-width: 768px) and (max-width: 992px)";
@@ -10,11 +10,4 @@ $md: "(min-width: 992px) and (max-width: 1200px)";
 $lg: "(min-width: 1200px)";
 
 $base-font-size: 16px;
-// @include font-face("Karton", "../fonts/karton-regular-webfont", null, null, ttf woff woff2 );
-$ff: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
-
-@import "includes/prepers";
-@import "includes/joomla";
-
-@import "../blocks/**/*";
-@import "../../../../bemBlocks/**/*";
+$font-os: "Open Sans", Arial, Helvetica, sans-serif;

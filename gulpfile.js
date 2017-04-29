@@ -31,9 +31,14 @@ const changed        = require("gulp-changed");
 const replace        = require("gulp-replace");
 const print          = require("gulp-print");
 const spritesmith    = require("gulp.spritesmith");
+const svgSprite      = require('gulp-svg-sprite');
+const svgmin         = require('gulp-svgmin');
+const cheerio        = require('gulp-cheerio');
+const svgstore       = require("gulp-svgstore");
 
 var sprites = ["sprite"];
 var app = "./app";
+var dev = "./develop"
 
 
 /*
@@ -142,15 +147,50 @@ gulp.task("sprite", function generateSpritesheets () {
     .pipe(spritesmith({
       imgName: "sprite.png",
       cssName: "sprite.scss",
-      imgPath: "../images/sprite.png",
+      imgPath: "/app/images/sprite.png",
       padding: 1
     }));
 
     spriteData.img.pipe(gulp.dest(app + "/images"));
-    spriteData.css.pipe(gulp.dest(app + "/scss"));
+    spriteData.css.pipe(gulp.dest(dev + "/scss"));
     //-png sptite
   // }
 
+});
+
+// svg sprite
+
+gulp.task('svgSpriteBuild', function () {
+	return gulp.src("./develop/images/*.svg")
+	// minify svg
+		.pipe(svgmin({
+			js2svg: {
+				pretty: true
+			}
+		}))
+		// remove all fill, style and stroke declarations in out shapes
+		.pipe(cheerio({
+			run: function ($) {
+				$('[fill]').removeAttr('fill');
+				$('[stroke]').removeAttr('stroke');
+				$('[style]').removeAttr('style');
+			},
+			parserOptions: {xmlMode: true}
+		}))
+		// cheerio plugin create unnecessary string '&gt;', so replace it.
+		.pipe(replace('&gt;', '>'))
+		// build svg sprite
+		.pipe(svgSprite({
+			mode: {
+				symbol: {
+					sprite: "svgsprite.svg",
+                }
+			}
+		}))
+        .pipe(svgstore({
+          inlineSvg: true
+        }))
+		.pipe(gulp.dest("./develop/images/"));
 });
 
 
@@ -225,7 +265,7 @@ gulp.task("build:copyDistFonts",  function () {
 //minifi img
 gulp.task("build:minifiImg",  function () { 
 
-  return gulp.src([app + "/images/**/{*.jpg,*.png,*.jpeg,*.gif,*.svg}"])
+  return gulp.src([app + "/images/**/{*.jpg,*.png,*.jpeg,*.gif}"])
   .pipe(print())
   .pipe(imagemin({zopflipng: false}))
   .on("error", console.log)

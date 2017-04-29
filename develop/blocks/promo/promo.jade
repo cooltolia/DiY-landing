@@ -1,0 +1,14 @@
+- var src = "images/logo.jpg"
+
+mixin promo()
+  +b.SECTION.promo
+    +e.logo
+      img(src=src)
+    +e.H1.title 
+      +e.SPAN.title-top переговоры
+      +e.SPAN.title-bottom на высоте
+    +e.P.text
+      | Переговоры поставщиков и закупщиков
+      | на самом высоком уровне.
+    +e.A(href="#form").btn Принять участие
+    +scroll

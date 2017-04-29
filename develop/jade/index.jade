@@ -1,17 +1,18 @@
 include template/header
 include template/footer
 include ../blocks/**/*
-include ../../../bemBlocks/**/*
 - var alias = "m"
 doctype
 html(lang='ru')
     +doc-header
     body.pageload.no-js
-        .container
-            .row
-                .col-md-3
-                    //- +sidebar
-                .col-md-9
-                    div
-                        | mainPage
-        +doc-footer
+      +main-header
+      +promo
+      +about
+      +triggers
+      +vip
+      +partners
+      +forms
+      +footer
+      +doc-footer
+      
