@@ -1,7 +1,7 @@
 .triggers {
   box-sizing: border-box;
   width: 100%;
-  min-width: 767px;
+  min-width: 768px;
   min-height: 987px;
   
   background-image: url("../images/triggers-bg.jpg");
@@ -9,7 +9,7 @@
   // background-attachment: fixed;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .triggers {
     min-height: 993px;
     

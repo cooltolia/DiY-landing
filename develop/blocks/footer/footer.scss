@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  min-width: 767px;
+  min-width: 768px;
   min-height: 325px;
   
   background-color: #000;
@@ -75,7 +75,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .footer__block {
     width: 100%;
     min-height: 625px;

@@ -1,7 +1,7 @@
 .promo {
   box-sizing: border-box;
   width: 100%;
-  min-width: 767px;
+  min-width: 768px;
   min-height: 799px;
   padding-top: 200px;
   
@@ -47,7 +47,7 @@
   border-radius: 15px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .promo {
     min-height: 1007px;
     padding-top: 330px;

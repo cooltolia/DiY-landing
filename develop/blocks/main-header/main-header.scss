@@ -9,7 +9,7 @@
 .main-header__inner {
   box-sizing: border-box;
   width: 100%;
-  min-width: 767px;
+  min-width: 768px;
   max-width: 1170px;
   margin: 0 auto;
   padding: 22px 15px 0;
@@ -58,7 +58,7 @@
   background-repeat: no-repeat;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .main-header__inner {
     display: block;
     padding-top: 65px;
