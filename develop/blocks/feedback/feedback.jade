@@ -1,0 +1,14 @@
+mixin feedback()
+  +b.feedback
+    +e.close
+    +e.text Оставьте заявку и мы свяжемся с Вами в течении 30 минут
+    +e.FORM.form(method="post", action="#")
+      +input("text", "name", "Ваше имя")
+      +input("text", "company", "Название компании")
+      +input("tel", "tel", "Ваш телефон")
+      +input("email", "email", "Ваша почта")
+      +e.TEXTAREA.textarea(placeholder="Сообщение")
+      +e.BUTTON.submit(type="submit") Отправить
+    +e.footer.
+      Остались вопросы? Вы можете задать их по телефону
+      +7 (812) 339-33-13  или по почте  info@eg-forum.ru
