@@ -1,0 +1,76 @@
+.slider {
+  position: relative;
+  width: 1170px;
+  padding: 0 15px;
+  height: 257px;
+  
+  overflow: hidden;
+}
+
+.slider__control {
+  position: absolute;
+  width: 67px;
+  height: 100%;
+  top: 0;
+  
+  cursor: pointer;
+  
+  background-size: 32px 40px;
+  background-repeat: no-repeat;
+  
+  &--left {
+    left: 15px;
+    
+    background-image: url("../images/left-arrow.svg");
+
+    background-position: center left;
+
+  }
+    
+  &--right {
+    right: 15px;
+    
+    background-image: url("../images/right-arrow.svg");
+    background-position: center right;
+  }
+}
+
+.slider__slides {
+  width: 1006px;
+  height: 257px;
+  margin: 0 auto;
+  overflow: hidden;
+  
+  font-size: 0;
+}
+
+.slider__slide {
+  display: inline-block;
+  width: 500px;
+  height: 257px;
+  
+  background-image: url("../images/brand-icon1.jpg");
+  background-size: cover;
+}
+
+@media (max-width: 1200px) {
+  .slider {
+    width: 767px;
+    margin: 0 auto;
+  }
+  
+  .slider__control {
+    width: 52px;
+  }
+  
+  .slider__slides {
+    width: 664px;
+  }
+  
+  .slider__slide {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+

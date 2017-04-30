@@ -1,0 +1,34 @@
+.forms {
+  width: 100%;
+  min-width: 767px;
+  min-height: 732px;
+  
+  background-image: url("../images/form-bg.jpg");
+  background-size: cover;
+}
+
+.forms__inner {
+  box-sizing: border-box;
+  width: 945px;
+  margin: 0 auto; 
+  padding: 0 67px;
+  
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@media (max-width: 1000px) {
+  .forms {
+    min-height: 1137px;
+    
+    background-image: url("../images/form-bg_sm.jpg");
+  }
+  
+  .forms__inner {
+    width: 767px;
+    padding: 0 101px;
+  }
+}

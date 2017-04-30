@@ -1,0 +1,81 @@
+.promo {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 767px;
+  min-height: 799px;
+  padding-top: 200px;
+  
+  background-image: url(../images/main-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  
+  font-family: $font-os;
+}
+
+.promo__logo {
+  width: 364px;
+  height: 212px;
+  margin: 0 auto;
+  margin-bottom: 52px;
+  
+  background-image: url("../images/logo.png");
+  background-size: cover;
+}
+
+.promo__text {
+  width: auto;
+  max-width: 505px;
+  margin: 0 auto;
+  margin-bottom: 45px;
+  
+  color: #ffffff;
+  font-family: Cambria, serif;
+  font-size: 26px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.promo__btn {
+  @include btn;
+  
+  width: 294px;
+  min-height: 53px;
+  margin: 0 auto;
+  margin-bottom: 68px;
+  
+  border-radius: 15px;
+}
+
+@media (max-width: 767px) {
+  .promo {
+    min-height: 1007px;
+    padding-top: 330px;
+    
+    background-image: url(../images/main-bg_sm.jpg);
+    background-attachment: scroll;
+  }
+  
+  .promo__logo {
+    width: 380px;
+    height: 221px;
+    margin-left: 70px;
+    margin-bottom: 180px;
+    
+    background-image: url("../images/logo_sm.png");
+  }
+   
+  .promo__text {
+    max-width: 550px;
+    margin-left: 70px;
+    
+    font-size: 42px;
+    text-align: left;
+    line-height: 1.1;
+  }
+  
+  .promo__btn {
+    display: none;
+  }
+}
+

@@ -1,0 +1,18 @@
+.triggers {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 767px;
+  min-height: 987px;
+  
+  background-image: url("../images/triggers-bg.jpg");
+  background-size: cover;
+  // background-attachment: fixed;
+}
+
+@media (max-width: 767px) {
+  .triggers {
+    min-height: 993px;
+    
+     background-image: url("../images/triggers-bg_sm.jpg");
+  }
+}

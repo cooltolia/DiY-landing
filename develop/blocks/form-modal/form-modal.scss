@@ -1,0 +1,48 @@
+.form-modal {
+  display: none;
+  box-sizing: border-box;
+  position: absolute;
+  width: 370px;
+  height: 203px;
+  bottom: -90px;
+  left: -40px;
+  
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.28);
+  background-color: #ffffff;
+  
+  color: #000000;
+  font-family: $font-os;
+  font-weight: 400;
+  
+  &--active {
+    display: block;
+  }
+}
+
+.form-modal__title {
+  width: 140px;
+  margin: 0 auto;
+  margin-bottom: 20px; 
+  padding-top: 25px;
+  
+  font-size: 24px;
+  text-align: center;
+}
+
+.form-modal__text {
+  width: 140px;
+  margin: 0 auto;
+  margin-bottom: 12px;
+  
+  font-size: 19px;
+  text-align: center;
+}
+
+.form-modal__icon {
+  width: 42px;
+  height: 43px;
+  margin: 0 auto;
+  
+  background-image: url(../images/sprite.png);
+  background-position: $check-icon-offset-x $check-icon-offset-y;
+}

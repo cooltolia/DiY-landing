@@ -1,0 +1,87 @@
+.main-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  
+  z-index: 5;
+}
+
+.main-header__inner {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 767px;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 22px 15px 0;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  
+  font-family: $font-os;
+  color: #fff;
+}
+
+.main-header__block {
+  flex-shrink: 0;
+  margin-right: 15px;
+}
+
+.main-header__data {
+  padding-left: 28px;
+  
+  font-size: 25px;
+  font-weight: 400;
+  
+  background-image: url(../images/placeholder.svg);
+  background-size: 23px 25px;
+  background-position: top 7px left -2px;
+  background-repeat: no-repeat;
+}
+
+.main-header__adress {
+  font-size: 35px;
+  text-transform: uppercase;
+}
+
+.main-header__tel {
+  padding-left: 21px;
+  margin-left: 15px;
+  flex-shrink: 0;
+  
+  font-size: 22px;
+  font-weight: 400;
+  
+  background-image: url(../images/phone-call.svg);
+  background-size: 22px 18px;
+  background-position: top 8px left;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 767px) {
+  .main-header__inner {
+    display: block;
+    padding-top: 65px;
+    padding-left: 70px;
+  }
+  
+  .main-header__data {
+    margin-bottom: 5px;
+    font-size: 35px;
+    
+    background-size: 25px 25px;
+    background-position: top 12px left -2px;
+  }
+  
+  .main-header__adress {
+    font-size: 48px;
+  }
+  
+  .main-header__tel {
+    margin-left: 0;
+    padding-left: 40px;
+    
+    font-size: 50px;
+    background-size: 36px 59px;
+  }
+}

@@ -1,9 +1,11 @@
 mixin form(modName, title)
-  +b.FORM.form(class="form--" + modName)
+  +b.FORM.form(class="form--" + modName, method="post", action="#")
     +e.title #{title}
+    +e.text Оставьте заявку и мы свяжемся с Вами в течении 30 минут
     +input("text", "name", "Ваше имя")
     +input("text", "company", "Название компании")
     +input("tel", "tel", "Ваш телефон")
     +input("email", "email", "Ваша почта")
     +e.TEXTAREA.textarea(placeholder="Сообщение")
     +e.BUTTON.submit(type="submit") Отправить
+    +form-modal

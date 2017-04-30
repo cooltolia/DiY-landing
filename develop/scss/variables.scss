@@ -1,0 +1,39 @@
+$xsm: "(max-width: 768px)";
+$sm: "(min-width: 768px) and (max-width: 992px)";
+$md: "(min-width: 992px) and (max-width: 1200px)";
+$lg: "(min-width: 1200px)";
+
+$base-font-size: 16px;
+$font-os: "Open Sans", Arial, Helvetica, sans-serif;
+
+@mixin btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 22px;
+  font-weight: 400;
+
+  background-color: transparent;
+  border: 1px solid #fff;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: background-image 300ms ease, color 300ms ease, border-color 150ms ease;
+
+  &:hover {
+    text-decoration: none;
+    color: #000;
+    border-color: darkgrey;
+    background-image: linear-gradient(180deg, #010101 0%, rgba(1, 1, 1, 0) 100%);
+  }
+  
+  &:focus {
+    text-decoration: none;
+    color: #000;
+  }
+}

@@ -1,0 +1,155 @@
+.form {
+  position: relative;
+  padding-top: 91px;
+  width: 292px;
+  float: left;
+  
+  font-family: $font-os;
+  
+  &--byer {
+    float: right;
+  }
+}
+
+.form__title {
+  margin-bottom: 42px;
+  
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.form__text {
+  margin-bottom: 45px;
+  
+  display: none;
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  height: 28px;
+  margin-bottom: 22px;
+  
+  border: 0;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  
+  line-height: 28px;
+  color: #fff;
+  font-size: 11px;
+  
+  &::placeholder {
+    color: #fff;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  
+  &:focus {
+    outline: 1px solid rgba(#fff, 0.5);
+    outline-offset: 0px;
+  }
+  
+  &:last-of-type {
+    margin-top: 35px;
+    margin-bottom: 60px;
+  }
+}
+
+.form__textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-height: 111px;
+  max-height: 212px;
+  padding: 11px 7px;
+  margin-bottom: 30px;
+  
+  border: 2px solid #fff;
+  background: transparent;
+  
+  &::placeholder {
+    color: #fff;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+.form__submit {
+  @include btn;
+  
+  width: 100%;
+  height: 35%;
+  
+  font-size: 15px;
+  
+  border-width: 2px;
+}
+
+@media (max-width: 1000px) {
+  .form {
+    padding-top: 35px;
+    width: 565px;
+    
+    &--byer {
+      display: none;
+    }
+  } 
+  
+  .form__title {
+    display: none;
+  }
+  
+  .form__text {
+    display: block;
+  }
+  
+  .form__input {
+    height: 52px;
+    margin-bottom: 42px;
+    
+    line-height: 52px;
+    font-size: 21px;
+    
+    &:last-of-type {
+      margin-top: 65px;
+      margin-bottom: 115px;
+  }
+    
+    &::placeholder {
+      font-size: 21px;
+    }
+  }
+  
+  .form__textarea {
+    min-height: 215px;
+    max-height: 300px;
+    padding: 22px 15px;
+    margin-bottom: 55px;
+    
+    font-size: 21px;
+    
+    &::placeholder {
+      font-size: 21px;
+    }
+  }
+  
+  .form__submit {
+    height: 68px;
+    
+    background-color: #fff;
+    
+    color: #020202;
+    font-size: 36px;
+  }
+}

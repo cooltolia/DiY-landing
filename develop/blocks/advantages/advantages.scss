@@ -1,0 +1,102 @@
+.advantages {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  margin-bottom: 230px;
+  padding: 116px 15px 0;
+  
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: stretch;
+  
+  font-family: $font-os;
+}
+
+.advantages__item {
+  position: relative;
+  display: inline-block;
+  width: 195px;
+  flex: 0 0 auto;
+  padding-top: 140px; 
+  margin-bottom: 15px;
+  
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 121px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+      
+    background: url("../images/sprite.png");
+    background-position: $feature-icon1-offset-x $feature-icon1-offset-y;
+    background-repeat: no-repeat;
+  }
+  
+  &:nth-child(2)::before {
+    background-position: $feature-icon2-offset-x $feature-icon2-offset-y;
+  }
+  
+  &:nth-child(3)::before {
+    background-position: $feature-icon3-offset-x $feature-icon3-offset-y;
+  }
+  
+  &:nth-child(4)::before {
+    background-position: $feature-icon4-offset-x $feature-icon4-offset-y;
+  }
+  
+  &:nth-child(5)::before {
+    background-position: $feature-icon5-offset-x $feature-icon5-offset-y;
+  }
+}
+
+@media (max-width: 767px) {
+  .advantages {
+    padding: 68px 65px 50px;
+    margin-bottom: 0;
+  }
+  
+  .advantages__item {
+    width: 295px;
+    padding-top: 240px;
+    
+    font-size: 27px;
+    
+    &:nth-child(-n+2) {
+      margin-bottom: 120px;
+    }
+    
+    &:nth-child(5) {
+      display: none;
+    }
+    
+    &::before {
+      width: 203px;
+      height: 204px;
+    }
+    
+    &:nth-child(1)::before {
+      background-position: $feature-icon1-bg-offset-x $feature-icon1-bg-offset-y;
+    }
+    
+    &:nth-child(2)::before {
+      background-position: $feature-icon2-bg-offset-x $feature-icon2-bg-offset-y;
+    }
+    
+    &:nth-child(3)::before {
+      background-position: $feature-icon3-bg-offset-x $feature-icon3-bg-offset-y;
+    }
+    
+    &:nth-child(4)::before {
+      background-position: $feature-icon4-bg-offset-x $feature-icon4-bg-offset-y;
+    }
+  }
+}

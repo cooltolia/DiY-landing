@@ -1,13 +1,21 @@
 @import "includes/normalize.scss";
 @import "includes/fonts.scss";
 @import "sprite.scss";
+@import "variables.scss";
 
-// @import "../blocks/**/*.scss";
-
-$xsm: "(max-width: 768px)";
-$sm: "(min-width: 768px) and (max-width: 992px)";
-$md: "(min-width: 992px) and (max-width: 1200px)";
-$lg: "(min-width: 1200px)";
-
-$base-font-size: 16px;
-$font-os: "Open Sans", Arial, Helvetica, sans-serif;
+@import "../blocks/main-header/main-header.scss";
+@import "../blocks/main-nav/main-nav.scss";
+@import "../blocks/promo/promo.scss";
+@import "../blocks/scroll/scroll.scss";
+@import "../blocks/about/about.scss";
+@import "../blocks/triggers/triggers.scss";
+@import "../blocks/advantages/advantages.scss";
+@import "../blocks/features/features.scss";
+@import "../blocks/vip/vip.scss";
+@import "../blocks/partners/partners.scss";
+@import "../blocks/slider/slider.scss";
+@import "../blocks/forms/forms.scss";
+@import "../blocks/form/form.scss";
+@import "../blocks/form-modal/form-modal.scss";
+@import "../blocks/footer/footer.scss";
+@import "../blocks/map/map.scss";
