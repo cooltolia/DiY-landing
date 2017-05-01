@@ -1,7 +1,7 @@
 .triggers {
   box-sizing: border-box;
   width: 100%;
-  min-width: 768px;
+  min-width: 360px;
   min-height: 987px;
   
   background-image: url("../images/triggers-bg.jpg");
@@ -13,6 +13,14 @@
   .triggers {
     min-height: 993px;
     
-     background-image: url("../images/triggers-bg_sm.jpg");
+    background-image: url("../images/triggers-bg_sm.jpg");
+  }
+}
+
+@media (max-width: 768px) {
+  .triggers {
+    min-height: 600px;
+    
+    background-image: url("../images/triggers-bg_xs.jpg");
   }
 }

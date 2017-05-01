@@ -1,5 +1,6 @@
-mixin form-modal()
-  +b.form-modal
+mixin form-modal(modName)
+  +b.form-modal(class="form-modal--" + modName)
+    +e.close X
     +e.title Спасибо
     +e.text Ваше письмо отправлено.
     +e.icon

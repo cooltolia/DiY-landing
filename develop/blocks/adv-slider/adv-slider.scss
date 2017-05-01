@@ -1,0 +1,64 @@
+.adv-slider {
+  display: none;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 360px;
+  margin: 0 auto;
+  margin-bottom: 0 !important;
+  padding: 116px 15px 0;
+  
+  font-family: $font-os;
+}
+
+.adv-slider__item {
+  position: relative;
+  padding-top: 245px; 
+  margin-bottom: 15px;
+  
+  cursor: pointer;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 202px;
+    height: 204px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+      
+    background: url("../images/sprite.png");
+    background-repeat: no-repeat;
+  }
+  
+    &:nth-child(1)::before {
+      background-position: $feature-icon1-bg-offset-x $feature-icon1-bg-offset-y;
+    }
+    
+    &:nth-child(2)::before {
+      background-position: $feature-icon2-bg-offset-x $feature-icon2-bg-offset-y;
+    }
+    
+    &:nth-child(3)::before {
+      background-position: $feature-icon3-bg-offset-x $feature-icon3-bg-offset-y;
+    }
+    
+    &:nth-child(4)::before {
+      background-position: $feature-icon4-bg-offset-x $feature-icon4-bg-offset-y;
+    }
+}
+
+.adv-slider__text {
+  width: 225px;
+  margin: 0 auto;
+  
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+@media (max-width: 480px) {
+  .adv-slider {
+    display: block;
+  }
+}

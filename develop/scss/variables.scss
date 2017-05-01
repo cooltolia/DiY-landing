@@ -27,7 +27,7 @@ $font-os: "Open Sans", Arial, Helvetica, sans-serif;
 
   &:hover {
     text-decoration: none;
-    color: #000;
+    color: inherit;
     border-color: darkgrey;
     background-image: linear-gradient(180deg, #010101 0%, rgba(1, 1, 1, 0) 100%);
   }

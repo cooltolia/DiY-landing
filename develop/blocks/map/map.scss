@@ -10,7 +10,8 @@
 @media (max-width: 768px) {
   .map {
     width: 100%;
-    height: 465px;
+    height: auto;
+    padding-top: 62%;
     float: none;
     
     background-image: url("../images/map-bg_sm.jpg");

@@ -1,7 +1,7 @@
 .about {
   box-sizing: border-box;
   width: 100%;
-  min-width: 768px;
+  min-width: 360px;
   min-height: 360px;
   
   padding: 56px 0 70px;
@@ -40,7 +40,7 @@
 
 @media (max-width: 768px) {
   .about {
-    min-height: 900px;
+    min-height: 750px;
   }
   
   .about__title {
@@ -48,7 +48,7 @@
     padding: 0 65px;
     margin-bottom: 45px;
     
-    font-size: 48px;
+    font-size: 40px;
   }
   
   .about__text {
@@ -56,6 +56,24 @@
     padding: 0 65px;
     margin-bottom: 37px;
     
-    font-size: 36px;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    min-height: 570px;
+    padding: 40px 35px;
+  }
+  
+  .about__title {
+    padding: 0;
+    
+    font-size: 32px;
+  }
+  
+  .about__text {
+    padding: 0;
+    font-size: 20px;
   }
 }

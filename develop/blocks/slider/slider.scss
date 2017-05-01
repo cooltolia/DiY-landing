@@ -19,6 +19,8 @@
   
   background-image: url("../images/brand-icon1.jpg");
   background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
   
   &:nth-child(2) {
      background-image: url("../images/brand-icon2.jpg");
@@ -70,7 +72,7 @@
 
 @media (max-width: 1200px) {
   .slider {
-    width: 767px;
+    width: 100%;
     margin: 0 auto;
   }
   
@@ -80,15 +82,17 @@
   }
   
   .slick-prev {
-    left: -42px;
+    left: 0px;
   }
   
   .slick-next {
-    right: -42px;
+    right: 0px;
   }
   
   .slider__slides {
-    width: 664px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 42px;
   }
   
   .slider__slide {
@@ -97,4 +101,21 @@
   }
 }
 
+@media (max-width: 480px) {
+  .slider {
+    width: 100%;
+    
+    cursor: pointer;
+  }
+  
+  .slider__slides {
+    width: 100%;
+    height: 170px;
+  }
+  
+  .slider__slide {
+    width: 100%;
+    height: 170px;
+  }
+}
 

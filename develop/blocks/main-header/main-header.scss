@@ -9,7 +9,7 @@
 .main-header__inner {
   box-sizing: border-box;
   width: 100%;
-  min-width: 768px;
+  min-width: 360px;
   max-width: 1170px;
   margin: 0 auto;
   padding: 22px 15px 0;
@@ -83,5 +83,33 @@
     
     font-size: 50px;
     background-size: 36px 59px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header__inner {
+    padding-top: 35px;
+    padding-left: 35px;
+  }
+  
+  .main-header__data {
+    padding-left: 20px;
+    
+    font-size: 28px;
+    background-size: 22px 22px;
+    background-position: top 10px left -2px;
+  }
+  
+  .main-header__adress {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  
+  .main-header__tel {
+    padding-left: 30px;
+    
+    font-size: 30px;
+    background-size: 28px 25px;
+    background-position: top 12px left;
   }
 }
