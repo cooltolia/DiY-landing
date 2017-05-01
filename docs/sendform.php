@@ -10,9 +10,7 @@ include "_sendform.php";
 
 
 
-if(isset($_POST['token']))
-    if($_POST['token']=="tnbm567sgfg4556sdfDSg"){
-
+if(!empty($_POST)){
         if(isset($_POST['email'])){
             $_message[] = "Емайл " . $_POST['email'];
             $_sms[] =  substr($_POST['email'], 0, 10); //лимитируем смс по кол-во символов
