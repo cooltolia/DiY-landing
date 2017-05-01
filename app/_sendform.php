@@ -2,7 +2,7 @@
 $config['smtp_username'] = $conf['from-email'];  //Смените на адрес своего почтового ящика.
 $config['smtp_port'] = '465'; // Порт работы.
 $config['smtp_host'] =  'ssl://smtp.yandex.ru';  //сервер для отправки почты
-$config['smtp_password'] = 'пароль';  //Измените пароль
+$config['smtp_password'] = 'negotiations';  //Измените пароль
 $config['smtp_debug'] = false;  //Если Вы хотите видеть сообщения ошибок, укажите true вместо false
 $config['smtp_charset'] = 'utf-8';  //кодировка сообщений. (windows-1251 или utf-8, итд)
 $config['smtp_from'] = $conf['from'];

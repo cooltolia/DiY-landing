@@ -1,7 +1,7 @@
 <?php
-$conf['from'] = "site";  //Ваше имя - или имя Вашего сайта. Будет показывать при прочтении в поле "От кого"
-$conf['from-email'] = "noreplay@site.ru";  //Будет показывать при прочтении в поле "От кого" email
-$conf['to-email'] = "site@site.ru";  //куда будут идти заявки
+$conf['from'] = "DIY";  //Ваше имя - или имя Вашего сайта. Будет показывать при прочтении в поле "От кого"
+$conf['from-email'] = "negotiationsdiy@yandex.ru";  //Будет показывать при прочтении в поле "От кого" email
+$conf['to-email'] = "cooltolia@gmail.com";  //куда будут идти заявки
 
 
 error_reporting(0);

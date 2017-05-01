@@ -67,7 +67,6 @@ var formPopUpClose1 = formPopUp1.find(".form-modal__close");
 var formPopUpClose2 = formPopUp2.find(".form-modal__close");
 
 formSubmit1.click(function(e) {
-  e.preventDefault();
   formPopUp1.show(500);
 });
 
@@ -76,10 +75,31 @@ formPopUpClose1.click(function(e) {
 });
 
 formSubmit2.click(function(e) {
-  e.preventDefault();
   formPopUp2.show(500);
 });
 
 formPopUpClose2.click(function(e) {
   formPopUp2.hide(500);
+});
+
+
+// отправка формы
+
+ $('.f-ajax').on('submit', function(event){
+  event.preventDefault();
+  var $form = $(this);
+
+  $.ajax({
+    url: $form.attr("action"),
+    type: 'POST',
+    data: $form.serialize(),
+    success: function(result) {
+      if(result == "OK"){}
+      else
+        alert("Произошла ошибка!");
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      alert("Произошла ошибка!");
+    }
+  });
 });

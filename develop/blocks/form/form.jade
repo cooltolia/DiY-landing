@@ -1,11 +1,11 @@
 mixin form(modName, title)
-  +b.FORM.form(class="form--" + modName, method="post")
+  +b.FORM.form.f-ajax(class="form--" + modName, method="post" action="sendform.php")
     +e.title #{title}
     +e.text Оставьте заявку и мы свяжемся с Вами в течении 30 минут
-    +input("text", "name", "Ваше имя")
+    +input("text", "name", "Ваше имя")(required)
     +input("text", "company", "Название компании")
-    +input("tel", "tel", "Ваш телефон")
-    +input("email", "email", "Ваша почта")
+    +input("tel", "tel", "Ваш телефон")(required)
+    +input("email", "email", "Ваша почта")(required)
     +e.TEXTAREA.textarea(placeholder="Сообщение")
     +e.BUTTON.submit(type="submit") Отправить
     +form-modal(modName)
