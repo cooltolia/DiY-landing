@@ -2,6 +2,7 @@
   width: 50%;
   height: 325px;
   float: left;
+  overflow: hidden;
   
   background-image: url("../images/map-bg.jpg");
   background-size: cover;
@@ -10,8 +11,7 @@
 @media (max-width: 768px) {
   .map {
     width: 100%;
-    height: auto;
-    padding-top: 62%;
+    height: 465px;
     float: none;
     
     background-image: url("../images/map-bg_sm.jpg");

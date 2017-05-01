@@ -1702,7 +1702,7 @@ th {
   display: block;
   width: 165px;
   height: 70px;
-  margin-left: 210px;
+  margin-left: 180px;
   margin-bottom: 30px;
   -webkit-transition: -webkit-transform 300ms ease;
   transition: -webkit-transform 300ms ease;
@@ -1761,14 +1761,14 @@ th {
   width: 50%;
   height: 325px;
   float: left;
+  overflow: hidden;
   background-image: url("../images/map-bg.jpg");
   background-size: cover; }
 
 @media (max-width: 768px) {
   .map {
     width: 100%;
-    height: auto;
-    padding-top: 62%;
+    height: 465px;
     float: none;
     background-image: url("../images/map-bg_sm.jpg"); } }
 
