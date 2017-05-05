@@ -50,6 +50,8 @@
       </div>
     </header><!--/ main-header --> <!-- promo --> 
     <section class="promo">
+      <div id="video-container" class="promo__video">
+      </div>
       <div class="promo__logo">
       </div>
       <p class="promo__text">
@@ -71,7 +73,24 @@
           Остались вопросы? Вы можете задать их по телефону
           +7 (812) 339-33-13  или по почте  info@eg-forum.ru
         </div>
-      </div><!--/ feedback --> 
+      </div><!--/ feedback --> <!-- buttonflip --> 
+      <div class="buttonflip">
+        <div class="buttonflip-back"><i class="buttonflip__close fa fa-times"></i><!-- flipform --> 
+          <div class="flipform">
+            <form>
+              <div class="flipform__row"><input required="true" placeholder="Имя" type="text" value="" class="flipform__input"/>
+              </div>
+              <div class="flipform__row"><input required="true" placeholder="Номер телефона" type="text" value="" class="flipform__input"/>
+              </div>
+              <div class="flipform__row"><input required="true" placeholder="E-mail" type="text" value="" class="flipform__input"/>
+              </div>
+              <div class="flipform__row _margin-2x"><input type="submit" value="Перезвоните мне!" class="flipform__submit button"/>
+              </div>
+            </form>
+          </div><!--/ flipform --> 
+        </div>
+        <div class="buttonflip-front">Сделать заказ</div>
+      </div><!--/ buttonflip --> 
     </section><!--/ promo --> <!-- about --> 
     <section id="about" class="about">
       <h2 class="about__title">О проекте
@@ -89,15 +108,15 @@
     </section><!--/ about --> <!-- triggers --> 
     <section class="triggers"><!-- advantages --> 
       <div class="advantages">
-        <div class="advantages__item">Важнейщее событие года для закупщиков и поставщиков строй материалов
+        <div class="advantages__item wp">Важнейщее событие года для закупщиков и поставщиков строй материалов
         </div>
-        <div class="advantages__item">Переговоры проходят на высочайщем уровне с первыми лицами компаний
+        <div class="advantages__item wp">Переговоры проходят на высочайщем уровне с первыми лицами компаний
         </div>
-        <div class="advantages__item">Предварительная запись по товарным направлениям
+        <div class="advantages__item wp">Предварительная запись по товарным направлениям
         </div>
-        <div class="advantages__item">Самая высокая статистика успешно проведенных переговоров
+        <div class="advantages__item wp">Самая высокая статистика успешно проведенных переговоров
         </div>
-        <div class="advantages__item">Участие в переговорах гарантирует увеличения обьемов поставок продукции ежегодно
+        <div class="advantages__item wp">Участие в переговорах гарантирует увеличения обьемов поставок продукции ежегодно
         </div>
       </div><!--/ advantages --> <!-- adv-slider --> 
       <div class="adv-slider">
@@ -247,5 +266,11 @@
     <script src="js/bem.js"></script>
     <script src="js/main.js"></script>
     <!-- endbuild-->
+    <script>
+      window.onload = function(){
+      if(window.innerWidth >= 768)
+      document.getElementById('video-container').innerHTML = '<video autoplay muted id="bgvid"><source src="images/1.mp4" type="video/mp4"></video>'
+      };
+    </script>
   </body>
 </html>
