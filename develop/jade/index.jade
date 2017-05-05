@@ -15,4 +15,11 @@ html(lang='ru')
       +forms
       +footer
       +doc-footer
+      script.
+        window.onload = function(){
+        if(window.innerWidth >= 768)
+        document.getElementById('video-container').innerHTML = '<video autoplay muted id="bgvid"><source src="images/1.mp4" type="video/mp4"></video>'
+        };
+
+        
       

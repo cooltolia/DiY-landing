@@ -1,6 +1,7 @@
 .feedback {
   box-sizing: border-box;
   position: absolute;
+  z-index: 99;
   display: none;
   width: 377px;
   height: 497px;

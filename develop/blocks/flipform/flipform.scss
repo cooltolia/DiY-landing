@@ -1,0 +1,42 @@
+.flipform{
+    &__row{
+        margin: 12px auto 24px auto;
+
+        &_margin-2x{
+            margin: 76px auto 5px auto;
+        }
+    }
+
+   
+
+    &__input{
+       border-radius: 6px;
+    
+        background-color: #fff; // layer fill content
+
+        border: 1px #2b1e49 solid;
+        width: 100%;
+        height: 50px;
+
+        padding: 15px;
+
+        font-size: 18px;
+
+
+    } 
+
+    &__submit{
+        border-radius:10px;
+        background: #4a71b3;
+
+        color: #fff;
+        border: 0px none;
+        width: 100%;
+        height: 50px;
+        font-size: 18px;
+        width: 189px;
+    }
+
+
+
+}

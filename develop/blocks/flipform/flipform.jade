@@ -1,0 +1,11 @@
+mixin flipform()
+    +b.flipform
+     form
+        +e.row
+            +e.INPUT(required, placeholder="Имя", type="text", value="").input
+        +e.row
+            +e.INPUT(required, placeholder="Номер телефона", type="text", value="").input
+        +e.row
+            +e.INPUT(required, placeholder="E-mail", type="text", value="").input
+        +e.row._margin-2x
+            +e.INPUT(type="submit", value="Перезвоните мне!").submit.button

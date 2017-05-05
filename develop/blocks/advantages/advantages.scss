@@ -57,6 +57,18 @@
   &:nth-child(5)::before {
     background-position: $feature-icon5-offset-x $feature-icon5-offset-y;
   }
+  
+  &.wp {
+    transition: all .5s;
+    position: relative;
+    top: -95px;
+    opacity:0;
+  }
+  
+  &.active {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
@@ -99,7 +111,17 @@
     &:nth-child(4)::before {
       background-position: $feature-icon4-bg-offset-x $feature-icon4-bg-offset-y;
     }
+    
+    &.wp {
+      top: -195px;
+    }
+  
+    &.active {
+      top: 0;
+      opacity: 1;
+    }
   }
+  
 }
 
 @media (max-width: 480px) {
